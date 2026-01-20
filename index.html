@@ -78,12 +78,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 18px 60px;
-            background: rgba(0, 0, 0, 0.9);
+            background:  #ffffff;
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid #e5e5e5;
         }
 
         .logo {
@@ -93,7 +93,7 @@
         }
 
         .dvag-logo {
-            height: 32px;
+            height: 40px;
             width: auto;
         }
 
@@ -105,25 +105,47 @@
 
         .logo-main {
             font-family: "Playfair Display", serif;
-            font-size: 18px;
+            font-size: 20px;
             letter-spacing: 1px;
             color: var(--gold);
         }
 
         .logo-sub {
-            font-size: 11px;
+            font-size: 13px;
             color: var(--text-muted);
         }
 
-        nav a {
-            color: var(--text-muted);
-            margin-left: 24px;
-            text-decoration: none;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
+nav a {
+    color: #333;
+    margin-left: 32px; /* spacing increased */
+    text-decoration: none;
+    font-size: 15px; /* 1 point larger */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* INSERTED HERE — separators */
+header nav a:not(:first-child)::before {
+    content: "|";
+    color: #8C6A1F;
+    position: absolute;
+    left: -18px;
+    top: 0;
+}
+
+.logo-main {
+    color: #8C6A1F; /* Gold bleibt gut sichtbar */
+}
+
+.logo-sub {
+    color: #555;
+}
+
+.lang-switch button {
+    border: 1px solid #8C6A1F;
+    color: #8C6A1F;
+}
 
         nav a::after {
             content: "";
@@ -401,7 +423,7 @@
 
         /* SECTIONS */
         .section {
-            padding: 80px 40px;
+            padding: 60px 40px;
             max-width: 1100px;
             margin: auto;
         }
@@ -619,14 +641,24 @@
             border: none;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #000;
-            color: #777;
-            font-size: 13px;
-            border-top: 1px solid #222;
-        }
+.site-footer {
+    text-align: center;
+    padding: 40px;
+    background: #000;
+    color: #777;
+    font-size: 13px;
+    border-top: 1px solid #222;
+}
+
+.site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer li {
+    list-style: none;
+}
 
         /* FADE-IN */
         .fade-in {
@@ -659,6 +691,10 @@
             .section {
                 padding: 60px 20px;
             }
+	    header nav a:not(:first-child)::before {
+  	      content: none;
+	    }
+
         }
 /* Floating Booking Button */
 .floating-booking-btn {
@@ -766,47 +802,210 @@
     }
 }
 
+/* ================================
+   DVAG HERO – CLEAN FULL-WIDTH VERSION
+   ================================ */
+
+.dvag-hero {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+}
+
+/* Full-width portrait, no top space */
+.dvag-hero-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0; /* no top space */
+}
+
+.dvag-hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;   /* fills full width */
+    display: block;
+    margin: 0;
+}
+
+/* Text overlay */
+.dvag-hero-text {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    z-index: 2;
+    color: #ffffff;
+    max-width: 620px;
+    text-align: left;
+    transition: transform 0.3s ease-out;
+}
+
+/* Typography */
+.dvag-hero-name {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+.dvag-hero-role {
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 600;
+    color: #f2f2f2;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+/* Button */
+.dvag-hero-btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 14px 32px;
+    background: #ffffff;
+    color: #111;
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 15px;
+}
+
+.dvag-hero-btn:hover {
+    background: #f2f2f2;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dvag-hero-text {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .dvag-hero-name {
+        font-size: 28px;
+    }
+
+    .dvag-hero-role {
+        font-size: 16px;
+    }
+
+    .dvag-hero-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+.section {
+    position: relative;
+    padding: 60px 40px 70px; /* bottom padding ensures divider visibility */
+    z-index: 1;
+}
+
+.section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 60%;
+    height: 3px;
+    transform: translateX(-50%);
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(212, 175, 55, 0.25),
+        transparent
+    );
+    opacity: 0.6;
+    z-index: 2;
+}
+
+
+/* Desktop dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: #111;
+    padding: 10px 0;
+    border-radius: 4px;
+    min-width: 180px;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: #333;
+}
+
+/* Mobile dropdown */
+.mobile-dropdown {
+    padding: 10px 0;
+}
+
+.mobile-dropdown-title {
+    font-weight: 700;
+    display: block;
+    padding: 10px 0;
+    color: #fff;
+}
+
+
+/* Reset all previous separators */
+header nav > *::after,
+header nav > *::before {
+    content: none !important;
+}
+
+/* Apply equal spacing to top-level nav items */
+header nav > a,
+header nav > .dropdown {
+    padding: 0 22px;
+    position: relative;
+}
+
+/* Draw ONE separator after each top-level item except the last */
+header nav > a:not(:last-child)::after,
+header nav > .dropdown:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 18px;
+    background-color: #555;
+    transform: translateY(-50%);
+}
 
     </style>
 </head>
-
-<!-- Floating Booking Button -->
-<div class="floating-booking-btn" onclick="window.open('https://outlook.office.com/book/GoldSilberBeratungNareshVirothi@dvag02.onmicrosoft.com/s/GoI_zK0bLUqGSeXo7b4uXA2?ismsaljsauthenabled', '_blank')">
-    <span data-lang-block="de">Beratung</span>
-    <span data-lang-block="en" style="display:none;">Consultation</span>
-</div>
-
-<!-- Floating WhatsApp Button -->
-<div class="floating-whatsapp-btn" onclick="openWhatsApp()">
-    <img src="whatsapp-icon.png" alt="WhatsApp" class="floating-whatsapp-icon">
-    <span data-lang-block="de">Schnelle Beratung</span>
-    <span data-lang-block="en" style="display:none;">Quick Consultation</span>
-</div>
-
-<script>
-/* Spotlight follows mouse */
-...
-
-/* Language toggle */
-...
-
-/* WhatsApp Quick Consultation */
-function openWhatsApp() {
-    const lang = document.querySelector('.lang-btn.active').dataset.lang;
-
-    let message = "";
-
-    if (lang === "de") {
-        message = "Hallo Naresh, ich hätte gerne eine kurze Beratung.";
-    } else {
-        message = "Hi Naresh, I would like a quick consultation.";
-    }
-
-    const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/4917688193867?text=${encoded}`, "_blank");
-}
-
-</script>
 
 
 <body>
@@ -816,8 +1015,8 @@ function openWhatsApp() {
         <img src="DVAG-LOGO.png" class="dvag-logo" alt="DVAG Logo">
         <div class="logo-text-block">
             <span class="logo-main">
-                <span data-lang-block="de">Naresh Virothi | Gold &amp; Silber</span>
-                <span data-lang-block="en" style="display:none;">Naresh Virothi | Gold &amp; Silver</span>
+                <span data-lang-block="de">Gold &amp; Silber</span>
+		<span data-lang-block="en" style="display:none;">Gold &amp; Silver</span>
             </span>
             <span class="logo-sub">
                 <span data-lang-block="de">in Kooperation mit Geiger Edelmetalle</span>
@@ -830,7 +1029,25 @@ function openWhatsApp() {
         <a href="#home"><span data-lang-block="de">Start</span><span data-lang-block="en" style="display:none;">Home</span></a>
         <a href="#gold"><span data-lang-block="de">Gold</span><span data-lang-block="en" style="display:none;">Gold</span></a>
         <a href="#silver"><span data-lang-block="de">Silber</span><span data-lang-block="en" style="display:none;">Silver</span></a>
-        <a href="#about"><span data-lang-block="de">Über mich</span><span data-lang-block="en" style="display:none;">About</span></a>
+        <div class="dropdown">
+    <a href="#" class="dropdown-toggle">
+        <span data-lang-block="de">Über uns</span>
+        <span data-lang-block="en" style="display:none;">About Us</span>
+    </a>
+
+    <div class="dropdown-menu">
+        <a href="#about">
+            <span data-lang-block="de">Über mich</span>
+            <span data-lang-block="en" style="display:none;">About Me</span>
+        </a>
+
+        <a href="https://www.dvag.de/dvag/index.html" target="_blank">
+            <span data-lang-block="de">Über die DVAG</span>
+            <span data-lang-block="en" style="display:none;">About DVAG</span>
+        </a>
+    </div>
+</div>
+
         <a href="#contact"><span data-lang-block="de">Kontakt</span><span data-lang-block="en" style="display:none;">Contact</span></a>
     </nav>
 
@@ -847,10 +1064,23 @@ function openWhatsApp() {
         <span data-lang-block="de">Silber</span>
         <span data-lang-block="en" style="display:none;">Silver</span>
     </a>
+   <div class="mobile-dropdown">
+    <span class="mobile-dropdown-title">
+        <span data-lang-block="de">Über uns</span>
+        <span data-lang-block="en" style="display:none;">About Us</span>
+    </span>
+
     <a href="#about" onclick="toggleMenu()">
         <span data-lang-block="de">Über mich</span>
-        <span data-lang-block="en" style="display:none;">About</span>
+        <span data-lang-block="en" style="display:none;">About Me</span>
     </a>
+
+    <a href="https://www.dvag.de/dvag/index.html" target="_blank" onclick="toggleMenu()">
+        <span data-lang-block="de">Über die DVAG</span>
+        <span data-lang-block="en" style="display:none;">About DVAG</span>
+    </a>
+</div>
+
     <a href="#contact" onclick="toggleMenu()">
         <span data-lang-block="de">Kontakt</span>
         <span data-lang-block="en" style="display:none;">Contact</span>
@@ -872,6 +1102,40 @@ function openWhatsApp() {
 </header>
 
 <!-- HERO -->
+
+<!-- DVAG STYLE HERO SECTION (CLEAN PREMIUM VERSION) -->
+<section id="hero-top" class="dvag-hero fade-in">
+    <div class="dvag-hero-container">
+        <img src="Naresh_DVAG.png" alt="Naresh Virothi DVAG" class="dvag-hero-image">
+
+        <!-- Text on left -->
+        <div class="dvag-hero-text fade-in-text">
+
+            <h1 class="dvag-hero-name">
+                <span data-lang-block="de">Naresh Virothi</span>
+                <span data-lang-block="en" style="display:none;">Naresh Virothi</span>
+            </h1>
+
+            <p class="dvag-hero-role">
+                <span data-lang-block="de">Ihr Vermögensberater für Gold & Silber</span>
+                <span data-lang-block="en" style="display:none;">Your Financial Consultant for Gold & Silver</span>
+            </p>
+
+            <a href="#contact" class="dvag-hero-btn">
+                <span data-lang-block="de">Kontakt aufnehmen</span>
+                <span data-lang-block="en" style="display:none;">Get in Touch</span>
+            </a>
+
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </div>
+</section>
+
+
 <section id="home" class="hero fade-in">
     <div class="hero-top-image">
         <div class="hero-image-spotlight"></div>
@@ -923,7 +1187,7 @@ function openWhatsApp() {
 
     <button class="btn" onclick="window.open('https://outlook.office.com/book/GoldSilberBeratungNareshVirothi@dvag02.onmicrosoft.com/s/GoI_zK0bLUqGSeXo7b4uXA2?ismsaljsauthenabled', '_blank')">
     <span data-lang-block="de">Kostenlose Beratung - jetzt Termin buchen - 30min</span>
-    <span data-lang-block="en" style="display:none;">Free Consultation- Book Appointment Now - 30min</span>
+    <span data-lang-block="en" style="display:none;">Free Consultation - Book Appointment Now - 30min</span>
     </button>
 
 </section>
@@ -1509,7 +1773,7 @@ function openWhatsApp() {
     </form>
 </section>
 
-<footer>
+<footer  class="site-footer">
     <span data-lang-block="de">© 2026 Naresh Virothi – Gold &amp; Silber Beratung · Deutsche Vermögensberatung AG (DVAG)</span>
     <span data-lang-block="en" style="display:none;">© 2026 Naresh Virothi – Gold &amp; Silver Advisory · Deutsche Vermögensberatung AG (DVAG)</span>
 </footer>
@@ -1625,6 +1889,45 @@ function toggleMenu() {
 }
 
 
+    /* WhatsApp Quick Consultation */
+    function openWhatsApp() {
+        const lang = document.querySelector('.lang-btn.active').dataset.lang;
+
+        let message = "";
+
+        if (lang === "de") {
+            message = "Hallo Naresh, ich hätte gerne eine kurze Beratung.";
+        } else {
+            message = "Hi Naresh, I would like a quick consultation.";
+        }
+
+        const encoded = encodeURIComponent(message);
+        window.open(`https://wa.me/4917688193867?text=${encoded}`, "_blank");
+    }
+
+
+</script>
+
+<!-- Floating Booking Button -->
+<div class="floating-booking-btn" onclick="window.open('https://outlook.office.com/book/GoldSilberBeratungNareshVirothi@dvag02.onmicrosoft.com/s/GoI_zK0bLUqGSeXo7b4uXA2?ismsaljsauthenabled', '_blank')">
+    <span data-lang-block="de">Beratung</span>
+    <span data-lang-block="en" style="display:none;">Consultation</span>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<div class="floating-whatsapp-btn" onclick="openWhatsApp()">
+    <img src="whatsapp-icon.png" alt="WhatsApp" class="floating-whatsapp-icon">
+    <span data-lang-block="de">Schnelle Beratung</span>
+    <span data-lang-block="en" style="display:none;">Quick Consultation</span>
+</div>
+
+<script>
+document.addEventListener("mousemove", function(e) {
+    const text = document.querySelector(".dvag-hero-text");
+    const x = (e.clientX - window.innerWidth / 2) / 80;
+    const y = (e.clientY - window.innerHeight / 2) / 80;
+    text.style.transform = `translate(${x}px, ${y}px)`;
+});
 </script>
 
 </body>
