@@ -1026,6 +1026,22 @@ header nav > .dropdown:not(:last-child)::after {
     padding: 10px 0;
 }
 
+@media (max-width: 768px) {
+
+    .dvag-hero-role {
+        white-space: normal !important;   /* forces wrapping */
+        word-break: break-word;           /* breaks long words if needed */
+        max-width: 85%;                   /* prevents stretching */
+        font-size: 14px;                  /* smaller for mobile */
+        line-height: 1.3;
+    }
+}
+
+.dvag-hero-role span {
+    display: inline-block;
+}
+
+
     </style>
 </head>
 
