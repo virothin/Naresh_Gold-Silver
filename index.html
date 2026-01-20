@@ -983,40 +983,35 @@ header nav > .dropdown:not(:last-child)::after {
     transform: translateY(-50%);
 }
 
-/* FINAL FIX — MOBILE HERO TEXT */
+/* FINAL MOBILE HERO POSITION */
 @media (max-width: 768px) {
 
-    /* Correct hero text position */
     .dvag-hero-text {
         position: absolute;
         left: 20px;
-        bottom: 140px;   /* moves text UP so it never overlaps your face */
+        bottom: 80px;   /* lowered from 140px → perfect mid position */
         max-width: 85%;
-        z-index: 10;     /* ensures text is visible */
+        z-index: 10;
     }
 
-    /* Make sure name and role always show */
-    .dvag-hero-name,
-    .dvag-hero-role {
+    .dvag-hero-name {
+        font-size: 28px;
         display: block;
         color: #fff;
         text-shadow: 0 2px 6px rgba(0,0,0,0.45);
     }
 
-    .dvag-hero-name {
-        font-size: 28px;
-    }
-
     .dvag-hero-role {
         font-size: 16px;
+        display: block;
+        color: #fff;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.45);
     }
 
-    /* Ensure hero image shows your head, not your chest */
     .dvag-hero-image {
         object-position: top;
     }
 }
-
 
 
 /* FIX 2 — Mobile dropdown items stacking vertically */
