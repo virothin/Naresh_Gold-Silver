@@ -890,15 +890,16 @@ header nav a:not(:first-child)::before {
 @media (max-width: 768px) {
     .dvag-hero-text {
         left: 20px;
-        bottom: 20px;
+        bottom: 40px; /* moves text down */
+        max-width: 80%;
     }
 
     .dvag-hero-name {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .dvag-hero-role {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .dvag-hero-btn {
@@ -1002,6 +1003,22 @@ header nav > .dropdown:not(:last-child)::after {
     height: 18px;
     background-color: #555;
     transform: translateY(-50%);
+}
+
+/* FIX 1 — Hero text overlapping face on mobile */
+@media (max-width: 768px) {
+    .dvag-hero-text {
+        left: 20px;
+        bottom: 40px;
+        max-width: 80%;
+    }
+}
+
+/* FIX 2 — Mobile dropdown items stacking vertically */
+.mobile-dropdown a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
 }
 
     </style>
