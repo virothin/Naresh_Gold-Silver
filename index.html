@@ -886,28 +886,6 @@ header nav a:not(:first-child)::before {
     z-index: 3;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .dvag-hero-text {
-        left: 20px;
-        bottom: 40px; /* moves text down */
-        max-width: 80%;
-    }
-
-    .dvag-hero-name {
-        font-size: 26px;
-    }
-
-    .dvag-hero-role {
-        font-size: 15px;
-    }
-
-    .dvag-hero-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
 .section {
     position: relative;
     padding: 60px 40px 70px; /* bottom padding ensures divider visibility */
@@ -1005,14 +983,33 @@ header nav > .dropdown:not(:last-child)::after {
     transform: translateY(-50%);
 }
 
-/* FIX 1 — Hero text overlapping face on mobile */
+/* FINAL MOBILE HERO FIX */
 @media (max-width: 768px) {
+
+    /* Move text UP so it does NOT overlap your face */
     .dvag-hero-text {
         left: 20px;
-        bottom: 40px;
-        max-width: 80%;
+        bottom: 120px;   /* ← this is the correct value */
+        max-width: 85%;
+    }
+
+    /* Ensure your name is always visible */
+    .dvag-hero-name {
+        font-size: 28px;
+        display: block;
+    }
+
+    .dvag-hero-role {
+        font-size: 16px;
+        display: block;
+    }
+
+    /* Show more of your upper body */
+    .dvag-hero-image {
+        object-position: top;
     }
 }
+
 
 /* FIX 2 — Mobile dropdown items stacking vertically */
 .mobile-dropdown a {
